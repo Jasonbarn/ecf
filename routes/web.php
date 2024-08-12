@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProfileController;
 
-// Route::get('/', function () {
+// Route::get('/accueil', function () {
 //     return view('accueil');
 // });
 
@@ -18,13 +18,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//route des tasks  avec leurs controllers et vue pour créer,visualier,modifier et supprimer les tâches
-Route::get('/home', [TaskController::class, 'accueil'])->name('tasks.accueil');
-Route::get('/home/create', [TaskController::class, 'create'])->name('tasks.create');
-Route::post('/home/store', [TaskController::class, 'store'])->name('tasks.store');
-Route::get('/home/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-Route::post('/home/update/{task}', [TaskController::class, 'update'])->name('tasks.update');
-Route::post('/home/destroy/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
+
+//route menant vers la page d'accueil 
+Route::get('/accueil', [TaskController::class, 'index'])->name('accueil');
+//Route menant vers la liste des tâches
+Route::get('/taches', [TaskController::class, 'accueil'])->name('tasks.accueil');
+//route pour la creation 
+Route::get('/taches/create', [TaskController::class, 'create'])->name('tasks.create');
+//
+Route::post('/taches/store', [TaskController::class, 'store'])->name('tasks.store');
+//
+Route::get('/taches/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+//
+Route::put('/taches/update/{task}', [TaskController::class, 'update'])->name('tasks.update');
+//
+Route::delete('/taches/destroy/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 
 require __DIR__.'/auth.php';

@@ -7,34 +7,39 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function index()
+    {
+        return view ('accueil');
+    }
     public function accueil (Task $task)
     {
         //renvoie des taches  dans la base de données vers la vue accueil
         $tasks = Task::all();
-        return view('home',compact('tasks'));
+        return view('taches',compact('tasks'));
     }
 
-    //fonctionpour la création de nouvelles tâches
+    //fonction pour la création de nouvelles tâches
     public function create (Task $task)
     {
         return view('tasks.create');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'title' => 'required|max:255',
-    //         'description' => 'nullable',
-    //     ]);
-    //     Task::create($validated);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'nullable',
+        ]);
+        Task::create($validated);
 
-    //     return redirect()->route('tasks.accueil');
-    // }
+        return redirect()->route('tasks.accueil');
+    }
 
 
     //modification des tâches
     public function edit (Task $task)
     {
+        
         return view('tasks.edit', compact('task'));
     }
 
@@ -56,7 +61,7 @@ class TaskController extends Controller
     {
 
         $task->delete();
-        return redirect()->route('task.accueil');
+        return redirect()->route('tasks.accueil');
     }
 }
 

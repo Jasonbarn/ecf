@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+    //protège tout les do
     protected $guarded =[];
 }
