@@ -1,11 +1,15 @@
 @extends('layouts.task')
 
 @section('content')
+<nav
+    class="relative px-4 py-2 flex justify-between items-center bg-white dark:bg-gray-800 border-b-2 dark:border-gray-600">
 
+    <a class="text-2xl font-bold text-violet-600 dark:text-white" href="#">
+        Liste des Tâches
+    </a>
+</nav>
 <br>
-<h5>Liste des Tâches</h5> 
-<br>
-<hr>
+
 <br>
 
 <ul>
