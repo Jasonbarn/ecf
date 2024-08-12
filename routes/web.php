@@ -27,9 +27,9 @@ Route::get('/taches', [TaskController::class, 'accueil'])->name('tasks.accueil')
 //route pour la creation 
 Route::get('/taches/create', [TaskController::class, 'create'])->name('tasks.create');
 //
-Route::post('/taches/store', [TaskController::class, 'store'])->name('tasks.store');
+Route::post('/taches/store/', [TaskController::class, 'store'])->name('tasks.store');
 //
-Route::get('/taches/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::get('/taches/edit/{task}', [TaskController::class, 'edit'])->name('tasks.edit');
 //
 Route::put('/taches/update/{task}', [TaskController::class, 'update'])->name('tasks.update');
 //

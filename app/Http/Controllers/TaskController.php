@@ -57,10 +57,11 @@ class TaskController extends Controller
     }
 
      //suppression de taches et redirection 
-    public function destroy (Task $task)
+    public function destroy (Request $request,Task $task)
     {
 
         $task->delete();
+        return 'Tâches supprimé';
         return redirect()->route('tasks.accueil');
     }
 }

@@ -22,9 +22,8 @@
           <a href="#">Modification de tâches<span aria-hidden="true">&rarr;</span></a>
           <a href="#">Suppresion des tâches<span aria-hidden="true">&rarr;</span></a>
         </div>
-
-          <div class="flex flex-col-reverse">
-        <br><
+        <br> <br>
+        <div class="flex flex-col-reverse">
             <dd class="text-2xl font-bold leading-9 tracking-tight text-white"><a href="{{route ('tasks.accueil')}}">Appuyez ici pour visualiser les tâches</a></dd>
           </div>
         </dl>
@@ -32,7 +31,7 @@
     </div>
   </div>
 
-  <footer class="absolute bottom-0 w-full text-white py-8 bg-gradient-to-t from-green-600 to-indigo-600">
+  <footer class="absolute bottom-10 w-full text-white py-8 bg-gradient-to-t from-green-800 to-indigo-800">
 
     <div class="container mx-auto flex flex-wrap justify-between">
         <!-- Colonne 1 -->

@@ -22,8 +22,8 @@
             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" >
                 @csrf
                 @method('DELETE')
-                <br>
-                <button type="submit" class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded">
+                
+                <button type="submit" class="border border-white-500 text-white-500 font-bold py-2 px-4 rounded bg-red-400 hover:bg-red-400 text-white font-bold py-2 px-4 rounded ">
                     Supprimer
                 </button>
                 <hr>
