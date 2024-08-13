@@ -1,45 +1,50 @@
 @extends('layouts.task')
 
 @section('content')
-<nav
-    class="relative px-4 py-2 flex justify-between items-center bg-white dark:bg-gray-800 border-b-2 dark:border-gray-600">
+<body style="background-color: rgb(212, 174, 36) ;">
+<div class="container mx-auto mt-8">
+    <nav class="px-6 py-4 bg-white rounded-lg shadow-md flex justify-between items-center">
+        <a class="text-2xl font-bold text-yellow-600" href="#">
+            Liste des Tâches
+        </a>
+        <a href="{{ route('accueil') }}">
+            <button class="bg-gradient-to-r from-purple-400 to-red-500 text-white font-bold py-2 px-4 rounded">
+            Retour a la page d'accueil
+            </button>
+        <a href="{{ route('tasks.create') }}">
+            <button class="bg-gradient-to-r from-yellow-400  to-orange-500 text-white font-bold py-2 px-4 rounded">
+                Créer une nouvelle tâche
+            </button>
+        </a>
+    </nav>
 
-    <a class="text-2xl font-bold text-violet-600 dark:text-white" href="#">
-        Liste des Tâches
-    </a>
-</nav>
-<br>
-
-<br>
-
-<ul>
-    @foreach($tasks as $task)
-        <li>
-            <div>{{ $task->title }}</div> 
-            <div>{{ $task->description }}</div>  
-            
-            <a href="{{ route('tasks.edit', $task->id) }}">  <button type="submit" class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded">
-                Modifier <a href="{{ route('tasks.edit', $task->id) }}"></a>
-                </button></a>
-                
-
-            <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" >
-                @csrf
-                @method('DELETE')
-                
-                <button type="submit" class="border border-white-500 text-white-500 font-bold py-2 px-4 rounded bg-red-400 hover:bg-red-400 text-white font-bold py-2 px-4 rounded ">
-                    Supprimer
-                </button>
-                <hr>
-                <br> <br> 
-            </form>
-        </li>
-    @endforeach
-</ul>
-
-<a href="{{ route('tasks.create') }}">Créer une nouvelle tâche</a>
-
+    <div class="mt-6">
+        @forelse ($tasks as $task)
+            <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-lg">{{ $task->title }}</h3>
+                        <p class="text-gray-600">{{ $task->description }}</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="{{ route('tasks.edit', $task->id) }}" class="bg-yellow-500 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                            Modifier
+                        </a>
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                                Supprimer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <p class="text-center text-gray-500">Aucune tâche disponible. Créez-en une nouvelle.</p>
+        @endforelse
+    </div>
+</div>
+</body>
 @endsection
-
-
 

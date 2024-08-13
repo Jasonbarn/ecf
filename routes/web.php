@@ -20,20 +20,25 @@ Route::middleware('auth')->group(function () {
 
 
 
-//route menant vers la page d'accueil 
-Route::get('/accueil', [TaskController::class, 'index'])->name('accueil');
-//Route menant vers la liste des tâches
-Route::get('/taches', [TaskController::class, 'accueil'])->name('tasks.accueil');
-//route pour la creation 
-Route::get('/taches/create', [TaskController::class, 'create'])->name('tasks.create');
-//
-Route::post('/taches/store/', [TaskController::class, 'store'])->name('tasks.store');
-//
-Route::get('/taches/edit/{task}', [TaskController::class, 'edit'])->name('tasks.edit');
-//
-Route::put('/taches/update/{task}', [TaskController::class, 'update'])->name('tasks.update');
-//
-Route::delete('/taches/destroy/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+// Route menant vers la page d'accueil du site
+Route::get('/', [TaskController::class, 'accueil'])->name('accueil');
 
+// Route menant vers la liste des tâches existantes
+Route::get('/taches', [TaskController::class, 'index'])->name('tasks.index');
+
+// Route pour afficher le formulaire de création de nouvelle tâche
+Route::get('/taches/create', [TaskController::class, 'create'])->name('tasks.create');
+
+// Route pour enregistrer une nouvelle tâche dans la base de données
+Route::post('/taches/store/', [TaskController::class, 'store'])->name('tasks.store');
+
+// Route pour afficher le formulaire de modification d'une tâche existante
+Route::get('/taches/edit/{task}', [TaskController::class, 'edit'])->name('tasks.edit');
+
+// Route pour mettre à jour une tâche existante dans la base de données
+Route::put('/taches/update/{task}', [TaskController::class, 'update'])->name('tasks.update');
+
+// Route pour supprimer une tâche existante de la base de données
+Route::delete('/taches/destroy/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 require __DIR__.'/auth.php';

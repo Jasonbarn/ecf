@@ -7,23 +7,26 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    // Affiche toutes les tâches sur la page d'accueil
+    public function accueil()
     {
-        return view ('accueil');
-    }
-    public function accueil (Task $task)
-    {
-        //renvoie des taches  dans la base de données vers la vue accueil
-        $tasks = Task::all();
-        return view('taches',compact('tasks'));
+        return view('accueil');
     }
 
-    //fonction pour la création de nouvelles tâches
-    public function create (Task $task)
+    // Affiche toutes les tâches
+    public function index(Task $task)
+    {
+        $tasks = Task::all();  // Récupère toutes les tâches de la base de données
+        return view('taches', compact('tasks'));  // Passe les tâches à la vue
+    }
+
+    // Montre le formulaire pour créer une nouvelle tâche
+    public function create(Task $task)
     {
         return view('tasks.create');
     }
 
+    // Enregistre une nouvelle tâche dans la base de données
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -32,19 +35,17 @@ class TaskController extends Controller
         ]);
         Task::create($validated);
 
-        return redirect()->route('tasks.accueil');
+        return redirect()->route('tasks.index');  // Redirige après la création vers la route tasks index
     }
 
-
-    //modification des tâches
-    public function edit (Task $task)
+    // Montre le formulaire pour éditer une tâche existante
+    public function edit(Task $task)
     {
-        
         return view('tasks.edit', compact('task'));
     }
 
-        //ajouts de nouvelles taches
-    public function update (Request $request,Task $task)
+    // Met à jour une tâche existante dans la base de données
+    public function update(Request $request, Task $task)
     {
         $validated = $request->validate([
             'title' => 'required|max:255',
@@ -53,19 +54,27 @@ class TaskController extends Controller
 
         $task->update($validated);
 
-        return redirect()->route('tasks.accueil');
+        return redirect()->route('tasks.index');  // Redirige vers la vue accueil après la mise à jour de la tâche
     }
 
-     //suppression de taches et redirection 
-    public function destroy (Request $request,Task $task)
-    {
-
-        $task->delete();
-        return 'Tâches supprimé';
-        return redirect()->route('tasks.accueil');
-    }
+    // Supprime une tâche de la base de données
+    public function destroy(Task $task)
+{
+     // Supprime la tâche
+    if ($task->delete()) {  
+    return view ('supprimer');//redirige vers la la page supprimé
+}
+}
 }
 
+
+
+
+
+
+
+
+    
 
 
 

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    //protège tout les do
-    protected $guarded =[];
+    // Protège titre et description contre l'assignation en masse
+    protected $fillable =['title', 'description'];
 }
