@@ -11,6 +11,7 @@ class TaskController extends Controller
     public function accueil()
     {
         return view('accueil');
+    
     }
 
     // Affiche toutes les tâches
@@ -18,6 +19,7 @@ class TaskController extends Controller
     {
         $tasks = Task::all();  // Récupère toutes les tâches de la base de données
         return view('taches', compact('tasks'));  // Passe les tâches à la vue
+     
     }
 
     // Montre le formulaire pour créer une nouvelle tâche
@@ -43,6 +45,7 @@ class TaskController extends Controller
     {
         return view('tasks.edit', compact('task'));
     }
+
 
     // Met à jour une tâche existante dans la base de données
     public function update(Request $request, Task $task)

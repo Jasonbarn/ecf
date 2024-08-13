@@ -1,6 +1,7 @@
 
 @extends('layouts.task')
 
+
 @section('content')
 
 <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen w-screen flex justify-center items-center">
@@ -32,5 +33,7 @@
       </a>
   </div>
 </div>
+
+@endsection
 
 @endsection
