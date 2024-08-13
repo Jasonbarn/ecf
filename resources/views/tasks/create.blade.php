@@ -34,5 +34,5 @@
 <a href="{{ route('tasks.index') }}" class="text-white bg-gradient-to-r from-red-400 to-yellow-500 hover:bg-gradient-to-br focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
     Retour à la liste des tâches
 </a>
-</a>
+
 @endsection
