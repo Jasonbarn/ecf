@@ -42,3 +42,4 @@ Route::put('/taches/update/{task}', [TaskController::class, 'update'])->name('ta
 Route::delete('/taches/destroy/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 require __DIR__.'/auth.php';
+
