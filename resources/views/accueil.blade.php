@@ -15,7 +15,7 @@
         </div>
         <div class="mt-10 space-x-4">
             <a href="{{route('tasks.create')}}" class="inline-block bg-red-500 text-white px-6 py-3 rounded hover:bg-red-700 transition">Création de tâches</a>
-            <a href="#" class="inline-block bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-700 transition">Visualisation des tâches</a>
+            <a href="#" class="inline-block bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Visualisation des tâches</a>
             <a href="#" class="inline-block bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-700 transition">Modification de tâches</a>
             <a href="#" class="inline-block bg-purple-500 text-white px-6 py-3 rounded hover:bg-purple-700 transition">Suppression des tâches</a>
         </div>
