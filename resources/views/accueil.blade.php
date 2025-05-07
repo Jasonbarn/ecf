@@ -10,7 +10,7 @@
 
     <div class="z-10">
         <div class="text-white text-center">
-            <h2 class="text-4xl font-bold tracking-tight sm:text-6xl">Bienvenue sur ECF Task</h2>
+            <h2 class="text-4xl font-bold tracking-tight sm:text-6xl">Bienvenue sur JB Task</h2>
             <p class="mt-6 text-lg leading-8 ">Notre site est dédié à la gestion des tâches quotidiennes</p>
         </div>
         <div class="mt-10 space-x-4">
